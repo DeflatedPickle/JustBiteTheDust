@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "justbitethedust:items/broken_ore_overlay",
+		"layer1": "justbitethedust:items/broken_ore"
+    }
+}

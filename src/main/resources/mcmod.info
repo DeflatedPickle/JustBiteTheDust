@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "justbitethedust",
+    "name": "JustBiteTheDust",
+    "description": "Another AOBD clone.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "updateUrl": "",
+    "authorList": ["DeflatedPickle"],
+    "credits": "DeflatedPickle, Bluexin, Tencao, Loremaster, TehNut, pau101",
+    "url": "https://github.com/DeflatedPickle/JustBiteTheDust",
+    "logoFile": "logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
