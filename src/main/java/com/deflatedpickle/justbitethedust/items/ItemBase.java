@@ -1,8 +1,7 @@
 package com.deflatedpickle.justbitethedust.items;
 
-import com.deflatedpickle.justbitethedust.JustBiteTheDust;
 import com.deflatedpickle.justbitethedust.Reference;
-import com.deflatedpickle.justbitethedust.init.ModTabs;
+import com.deflatedpickle.justbitethedust.init.ModCreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -21,35 +20,38 @@ public class ItemBase extends Item {
         setRegistryName(Reference.MOD_ID + ":" + base.substring(original.length()) + "_" + type.toLowerCase().replaceAll(" ", "_"));
 
         if (type.equals("Nugget")) {
-            setCreativeTab(ModTabs.tabNugget);
+            setCreativeTab(ModCreativeTabs.tabNugget);
         }
         else if (type.equals("Dust")) {
-            setCreativeTab(ModTabs.tabDust);
+            setCreativeTab(ModCreativeTabs.tabDust);
         }
         else if (type.equals("Dust Tiny")) {
-            setCreativeTab(ModTabs.tabDustTiny);
+            setCreativeTab(ModCreativeTabs.tabDustTiny);
         }
         else if (type.equals("Gear")) {
-            setCreativeTab(ModTabs.tabGear);
+            setCreativeTab(ModCreativeTabs.tabGear);
         }
         else if (type.equals("Plate")) {
-            setCreativeTab(ModTabs.tabPlate);
+            setCreativeTab(ModCreativeTabs.tabPlate);
         }
         else if (type.equals("Broken Ore")) {
-            setCreativeTab(ModTabs.tabBrokenOre);
+            setCreativeTab(ModCreativeTabs.tabBrokenOre);
         }
         else if (type.equals("Broken Nether Ore")) {
-            setCreativeTab(ModTabs.tabBrokenNetherOre);
+            setCreativeTab(ModCreativeTabs.tabBrokenNetherOre);
         }
         else if (type.equals("Broken End Ore")) {
-            setCreativeTab(ModTabs.tabBrokenEndOre);
+            setCreativeTab(ModCreativeTabs.tabBrokenEndOre);
         }
+/*        else {
+            setCreativeTab(ModCreativeTabs.tabOther);
+        }*/
     }
 
     @Override
     public String getItemStackDisplayName(ItemStack stack){
         if (type.contains("Tiny")) {
-            return "Tiny Pile of " + base.substring(original.length()) + " Ore";
+            return "Tiny Pile of " + base.substring(original.length()) + " Dust";
         }
 
         String extra;

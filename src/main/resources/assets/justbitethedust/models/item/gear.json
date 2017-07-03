@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "justbitethedust:items/gear_rotarycraft"
+        "layer0": "justbitethedust:items/gear"
     }
 }

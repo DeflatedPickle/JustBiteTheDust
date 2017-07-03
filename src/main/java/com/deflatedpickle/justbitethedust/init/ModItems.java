@@ -20,26 +20,40 @@ public class ModItems {
                         if (OreDictionary.getOres("nugget" + ore).isEmpty()) {
                             registerItem(ore, "ingot", "Nugget");
                             registerItem(ore, "ingot", "Dust");
-                            registerItem(ore, "ingot", "Dust Tiny");
-                            registerItem(ore, "ingot", "Gear");
-                            registerItem(ore, "ingot", "Plate");
+                            if (JustBiteTheDust.installed_industrialcraft)
+                                registerItem(ore, "ingot", "Dust Tiny");
 
-                            registerItem(ore, "ingot", "Broken Ore");
-                            registerItem(ore, "ingot", "Broken Nether Ore");
-                            registerItem(ore, "ingot", "Broken End Ore");
+                            if (JustBiteTheDust.is_mod_gear)
+                                registerItem(ore, "ingot", "Gear");
+
+                            if (JustBiteTheDust.is_mod_plate)
+                                registerItem(ore, "ingot", "Plate");
+
+                            if (JustBiteTheDust.is_mod_exnihilo) {
+                                registerItem(ore, "ingot", "Broken Ore");
+                                registerItem(ore, "ingot", "Broken Nether Ore");
+                                registerItem(ore, "ingot", "Broken End Ore");
+                            }
                         }
                     }
                     else if (ore.startsWith("gem")) {
                         if (OreDictionary.getOres("gem" + ore).isEmpty()) {
                             registerItem(ore, "gem", "Nugget");
                             registerItem(ore, "gem", "Dust");
-                            registerItem(ore, "gem", "Dust Tiny");
-                            registerItem(ore, "gem", "Gear");
-                            registerItem(ore, "gem", "Plate");
+                            if (JustBiteTheDust.installed_industrialcraft)
+                                registerItem(ore, "gem", "Dust Tiny");
 
-                            registerItem(ore, "gem", "Broken Ore");
-                            registerItem(ore, "gem", "Broken Nether Ore");
-                            registerItem(ore, "gem", "Broken End Ore");
+                            if (JustBiteTheDust.is_mod_gear)
+                                registerItem(ore, "gem", "Gear");
+
+                            if (JustBiteTheDust.is_mod_plate)
+                                registerItem(ore, "gem", "Plate");
+
+                            if (JustBiteTheDust.is_mod_exnihilo) {
+                                registerItem(ore, "gem", "Broken Ore");
+                                registerItem(ore, "gem", "Broken Nether Ore");
+                                registerItem(ore, "gem", "Broken End Ore");
+                            }
                         }
                     }
                 }

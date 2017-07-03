@@ -47,19 +47,7 @@ public class ClientProxy implements CommonProxy{
     public void registerItemModel(ItemBase item, String type){
         String model = "";
         if (type.equals("Nugget")) {
-            List<String> list = Arrays.asList("", "_sideways", "_thermalfoundation");
-            model = list.get(new Random().nextInt(list.size()));
-        }
-        else if (type.equals("Dust")){
-            List<String> list = Arrays.asList("", "_appliedenergistics", "_electricalage", "_magneticraft", "_mekanism", "_thermalfoundation", "_industrialcraft");
-            model = list.get(new Random().nextInt(list.size()));
-        }
-        else if (type.equals("Gear")) {
-            List<String> list = Arrays.asList("_buildcraft", "_railcraft", "_rotarycraft", "_thermalfoundation");
-            model = list.get(new Random().nextInt(list.size()));
-        }
-        else if (type.equals("Plate")) {
-            List<String> list = Arrays.asList("_electricalage", "_fsp", "_industrialcraft", "_railcraft");
+            List<String> list = Arrays.asList("", "_sideways");
             model = list.get(new Random().nextInt(list.size()));
         }
 
