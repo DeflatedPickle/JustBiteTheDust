@@ -23,6 +23,7 @@ public class ModItems {
                             if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "ingot", "Dust Tiny");
                                 registerItem(ore, "ingot", "Crushed Ore");
+                                registerItem(ore, "ingot", "Crushed Ore Purified");
                             }
 
                             if (JustBiteTheDust.is_mod_gear)
@@ -42,8 +43,11 @@ public class ModItems {
                         if (OreDictionary.getOres("gem" + ore).isEmpty()) {
                             registerItem(ore, "gem", "Nugget");
                             registerItem(ore, "gem", "Dust");
-                            if (JustBiteTheDust.installed_industrialcraft)
+                            if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "gem", "Dust Tiny");
+                                registerItem(ore, "gem", "Crushed Ore");
+                                registerItem(ore, "gem", "Crushed Ore Purified");
+                            }
 
                             if (JustBiteTheDust.is_mod_gear)
                                 registerItem(ore, "gem", "Gear");

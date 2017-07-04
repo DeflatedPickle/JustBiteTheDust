@@ -15,6 +15,7 @@ public class ModCreativeTabs {
     public static TabBase tabDust;
     public static TabBase tabDustTiny;
     public static TabBase tabCrushedOre;
+    public static TabBase tabPurifiedOre;
     public static TabBase tabGear;
     public static TabBase tabPlate;
 
@@ -31,6 +32,7 @@ public class ModCreativeTabs {
         if (JustBiteTheDust.installed_industrialcraft) {
             tabDustTiny = new TabBase("dust_tiny");
             tabCrushedOre = new TabBase("crushed_ore");
+            tabPurifiedOre = new TabBase("crushed_ore_purified");
         }
 
         if (JustBiteTheDust.is_mod_gear)
@@ -58,7 +60,11 @@ public class ModCreativeTabs {
                     if (item.getRegistryName().toString().split("justbitethedust")[1].contains(search_for)) {
                         if (search_for.equals("dust") && item.getRegistryName().toString().contains("tiny")) {
                             break;
-                        } else {
+                        }
+                        else if (search_for.equals("crushed_ore") && item.getRegistryName().toString().contains("purified")){
+                            break;
+                        }
+                        else {
                             list.add(item);
                         }
                     }

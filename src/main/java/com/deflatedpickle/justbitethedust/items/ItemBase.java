@@ -31,6 +31,9 @@ public class ItemBase extends Item {
         else if (type.equals("Crushed Ore")) {
             setCreativeTab(ModCreativeTabs.tabCrushedOre);
         }
+        else if (type.equals("Crushed Ore Purified")) {
+            setCreativeTab(ModCreativeTabs.tabPurifiedOre);
+        }
         else if (type.equals("Gear")) {
             setCreativeTab(ModCreativeTabs.tabGear);
         }
@@ -61,6 +64,9 @@ public class ItemBase extends Item {
         }
         else if (type.contains("Tiny")) {
             return "Tiny Pile of " + base.substring(original.length()) + " Dust";
+        }
+        else if (type.contains("Purified")) {
+            return "Purified Crushed " + base.substring(original.length()) + " Ore";
         }
         else if (type.contains("Crushed")) {
             return "Crushed " + base.substring(original.length()) + " Ore";
