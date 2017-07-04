@@ -20,8 +20,10 @@ public class ModItems {
                         if (OreDictionary.getOres("nugget" + ore).isEmpty()) {
                             registerItem(ore, "ingot", "Nugget");
                             registerItem(ore, "ingot", "Dust");
-                            if (JustBiteTheDust.installed_industrialcraft)
+                            if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "ingot", "Dust Tiny");
+                                registerItem(ore, "ingot", "Crushed Ore");
+                            }
 
                             if (JustBiteTheDust.is_mod_gear)
                                 registerItem(ore, "ingot", "Gear");
@@ -67,7 +69,21 @@ public class ModItems {
         GameRegistry.register(item);
         JustBiteTheDust.proxy.registerItemModel(item, type);
         item_list.add(item);
-        ModCrafting.add_recipe(item, base, type);
-        OreDictionary.registerOre(type.substring(0, 1).toLowerCase() + StringUtils.capitalize(type.replaceAll(" ", "")).substring(1) + base.substring(original.length()).replaceAll(" ", ""), item);
+
+        if (type.equals("Dust Tiny"))
+            for (String ore : OreDictionary.getOreNames()){
+                if (ore.contains("dust") && ore.contains(base.substring(4)) && !ore.contains("Tiny")){
+                    ModCrafting.add_recipe(item, ore, type);
+                }
+            }
+        else
+            ModCrafting.add_recipe(item, base, type);
+
+        String oredict = type.substring(0, 1).toLowerCase() + StringUtils.capitalize(type.replaceAll(" ", "")).substring(1) + base.substring(original.length()).replaceAll(" ", "");
+
+        if (type.contains("Crushed"))
+            oredict = oredict.replace("Ore", "");
+
+        OreDictionary.registerOre(oredict, item);
     }
 }

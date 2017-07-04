@@ -20,6 +20,6 @@ public class TabBase extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem(){
-        return ModCreativeTabs.random_item(this.label);
+        return ModCreativeTabs.randomItem(this.label);
     }
 }

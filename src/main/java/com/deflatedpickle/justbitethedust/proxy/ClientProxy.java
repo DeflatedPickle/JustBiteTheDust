@@ -1,6 +1,5 @@
 package com.deflatedpickle.justbitethedust.proxy;
 
-import com.deflatedpickle.justbitethedust.JustBiteTheDust;
 import com.deflatedpickle.justbitethedust.init.ModItems;
 import com.deflatedpickle.justbitethedust.items.ItemBase;
 import net.minecraft.client.Minecraft;
@@ -19,7 +18,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;

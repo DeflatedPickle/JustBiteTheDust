@@ -28,6 +28,9 @@ public class ItemBase extends Item {
         else if (type.equals("Dust Tiny")) {
             setCreativeTab(ModCreativeTabs.tabDustTiny);
         }
+        else if (type.equals("Crushed Ore")) {
+            setCreativeTab(ModCreativeTabs.tabCrushedOre);
+        }
         else if (type.equals("Gear")) {
             setCreativeTab(ModCreativeTabs.tabGear);
         }
@@ -50,17 +53,20 @@ public class ItemBase extends Item {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack){
-        if (type.contains("Tiny")) {
-            return "Tiny Pile of " + base.substring(original.length()) + " Dust";
-        }
-
         String extra;
-        if (!type.contains("Broken")) {
-            return base.substring(original.length()) + " " + type;
-        } else {
+        if (type.contains("Broken")){
             extra = type.contains("Nether") ? "Nether " : type.contains("End") ? "End " : "";
 
             return "Broken " + base.substring(original.length()) + " " + extra + "Ore";
+        }
+        else if (type.contains("Tiny")) {
+            return "Tiny Pile of " + base.substring(original.length()) + " Dust";
+        }
+        else if (type.contains("Crushed")) {
+            return "Crushed " + base.substring(original.length()) + " Ore";
+        }
+        else {
+            return base.substring(original.length()) + " " + type;
         }
     }
 }

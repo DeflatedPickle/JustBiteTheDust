@@ -2,8 +2,6 @@ package com.deflatedpickle.justbitethedust.init;
 
 import com.deflatedpickle.justbitethedust.JustBiteTheDust;
 import com.deflatedpickle.justbitethedust.tabs.TabBase;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -16,6 +14,7 @@ public class ModCreativeTabs {
     public static TabBase tabNugget;
     public static TabBase tabDust;
     public static TabBase tabDustTiny;
+    public static TabBase tabCrushedOre;
     public static TabBase tabGear;
     public static TabBase tabPlate;
 
@@ -29,8 +28,10 @@ public class ModCreativeTabs {
         tabNugget = new TabBase("nugget");
         tabDust = new TabBase("dust");
 
-        if (JustBiteTheDust.installed_industrialcraft)
+        if (JustBiteTheDust.installed_industrialcraft) {
             tabDustTiny = new TabBase("dust_tiny");
+            tabCrushedOre = new TabBase("crushed_ore");
+        }
 
         if (JustBiteTheDust.is_mod_gear)
             tabGear = new TabBase("gear");
@@ -47,7 +48,7 @@ public class ModCreativeTabs {
         // tabOther = new TabBase("other");
     }
 
-    public static ItemStack random_item(String search_for) {
+    public static ItemStack randomItem(String search_for) {
         Random random = new Random();
         List<Item> list = new ArrayList<>();
 
