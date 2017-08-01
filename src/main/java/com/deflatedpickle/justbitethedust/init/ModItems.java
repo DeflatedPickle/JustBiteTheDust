@@ -24,18 +24,31 @@ public class ModItems {
 
                             if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "ingot", "Dust Tiny");
-                                registerItem(ore, "ingot", "Crushed Ore");
-                                registerItem(ore, "ingot", "Crushed Ore Purified");
+                                registerItem(ore, "ingot", "Ore Crushed");
+                                registerItem(ore, "ingot", "Ore Crushed Purified");
+                                registerItem(ore, "ingot", "Casing Item");
+                                registerItem(ore, "ingot", "Plate Dense");
                             }
 
                             if (JustBiteTheDust.installed_thermalfoundation){
                                 registerItem(ore, "ingot", "Coin");
                             }
 
+                            if (JustBiteTheDust.installed_mekanism){
+                                registerItem(ore, "ingot", "Dust Dirty");
+                                registerItem(ore, "ingot", "Shard");
+                                registerItem(ore, "ingot", "Clump");
+                                registerItem(ore, "ingot", "Crystal");
+                            }
+
+                            if (JustBiteTheDust.installed_esteemedinnovation){
+                                registerItem(ore, "ingot", "Ore Smashed");
+                            }
+
                             if (JustBiteTheDust.is_mod_exnihilo) {
-                                registerItem(ore, "ingot", "Broken Ore");
-                                registerItem(ore, "ingot", "Broken Nether Ore");
-                                registerItem(ore, "ingot", "Broken End Ore");
+                                registerItem(ore, "ingot", "Ore Broken");
+                                registerItem(ore, "ingot", "Ore Broken Nether");
+                                registerItem(ore, "ingot", "Ore Broken End");
                             }
 
                             if (JustBiteTheDust.is_mod_gear)
@@ -53,18 +66,31 @@ public class ModItems {
 
                             if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "gem", "Dust Tiny");
-                                registerItem(ore, "gem", "Crushed Ore");
-                                registerItem(ore, "gem", "Crushed Ore Purified");
+                                registerItem(ore, "gem", "Ore Crushed");
+                                registerItem(ore, "gem", "Ore Crushed Purified");
+                                registerItem(ore, "gem", "Casing Item");
+                                registerItem(ore, "gem", "Plate Dense");
                             }
 
                             if (JustBiteTheDust.installed_thermalfoundation){
                                 registerItem(ore, "gem", "Coin");
                             }
 
+                            if (JustBiteTheDust.installed_mekanism){
+                                registerItem(ore, "gem", "Dust Dirty");
+                                registerItem(ore, "gem", "Shard");
+                                registerItem(ore, "gem", "Clump");
+                                registerItem(ore, "gem", "Crystal");
+                            }
+
+                            if (JustBiteTheDust.installed_esteemedinnovation){
+                                registerItem(ore, "gem", "Ore Smashed");
+                            }
+
                             if (JustBiteTheDust.is_mod_exnihilo) {
-                                registerItem(ore, "gem", "Broken Ore");
-                                registerItem(ore, "gem", "Broken Nether Ore");
-                                registerItem(ore, "gem", "Broken End Ore");
+                                registerItem(ore, "gem", "Ore Broken");
+                                registerItem(ore, "gem", "Ore Broken Nether");
+                                registerItem(ore, "gem", "Ore Broken End");
                             }
 
                             if (JustBiteTheDust.is_mod_gear)
@@ -99,8 +125,8 @@ public class ModItems {
         } else
             ModCrafting.add_recipe(item, base, type);
 
-        if (type.contains("Crushed"))
-            oredict = oredict.replace("Ore", "");
+        if (type.toLowerCase().contains("crushed"))
+            oredict = "c" + oredict.substring(4);
 
         OreDictionary.registerOre(oredict, item);
     }

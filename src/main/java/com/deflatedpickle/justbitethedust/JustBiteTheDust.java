@@ -33,6 +33,8 @@ public class JustBiteTheDust {
     public static boolean installed_thermalfoundation = Loader.isModLoaded("thermalfoundation");
     public static boolean installed_buildcraft = Loader.isModLoaded("buildcraft");
     public static boolean installed_railcraft = Loader.isModLoaded("railcraft");
+    public static boolean installed_mekanism = Loader.isModLoaded("mekanism");
+    public static boolean installed_esteemedinnovation = Loader.isModLoaded("esteemedinnovation");
 
     private static boolean installed_exnihilo = Loader.isModLoaded("exnihilo");
     private static boolean installed_exnihiloadscensio = Loader.isModLoaded("exnihiloadscensio");

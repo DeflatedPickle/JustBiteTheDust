@@ -19,6 +19,7 @@ public class ItemBase extends Item {
         setUnlocalizedName(base.substring(original.length()).toLowerCase() + type.replaceAll(" ", ""));
         setRegistryName(Reference.MOD_ID + ":" + base.substring(original.length()) + "_" + type.toLowerCase().replaceAll(" ", "_"));
 
+        // Vanilla
         if (type.equals("Nugget")) {
             setCreativeTab(ModCreativeTabs.tabNugget);
         }
@@ -28,33 +29,65 @@ public class ItemBase extends Item {
         else if (type.equals("Rod")) {
             setCreativeTab(ModCreativeTabs.tabRod);
         }
+
+        // Industrial Craft
         else if (type.equals("Dust Tiny")) {
             setCreativeTab(ModCreativeTabs.tabDustTiny);
         }
-        else if (type.equals("Crushed Ore")) {
-            setCreativeTab(ModCreativeTabs.tabCrushedOre);
+        else if (type.equals("Ore Crushed")) {
+            setCreativeTab(ModCreativeTabs.tabOreCrushed);
         }
-        else if (type.equals("Crushed Ore Purified")) {
-            setCreativeTab(ModCreativeTabs.tabPurifiedOre);
+        else if (type.equals("Ore Crushed Purified")) {
+            setCreativeTab(ModCreativeTabs.tabOreCrushedPurified);
         }
+        else if (type.equals("Casing Item")) {
+            setCreativeTab(ModCreativeTabs.tabCasingItem);
+        }
+        else if (type.equals("Plate Dense")) {
+            setCreativeTab(ModCreativeTabs.tabDensePlate);
+        }
+
+        // Mekanism
+        else if (type.equals("Dust Dirty")) {
+            setCreativeTab(ModCreativeTabs.tabDustDirty);
+        }
+        else if (type.equals("Shard")) {
+            setCreativeTab(ModCreativeTabs.tabShard);
+        }
+        else if (type.equals("Clump")) {
+            setCreativeTab(ModCreativeTabs.tabClump);
+        }
+        else if (type.equals("Crystal")) {
+            setCreativeTab(ModCreativeTabs.tabCrystal);
+        }
+
+        // Esteemed-Innovation
+        else if (type.equals("Ore Smashed")) {
+            setCreativeTab(ModCreativeTabs.tabOreSmashed);
+        }
+
+        // Thermal Foundation
         else if (type.equals("Coin")) {
             setCreativeTab(ModCreativeTabs.tabCoin);
         }
+
+        // ExNihilo
+        else if (type.equals("Broken Ore")) {
+            setCreativeTab(ModCreativeTabs.tabOreBroken);
+        }
+        else if (type.equals("Broken Nether Ore")) {
+            setCreativeTab(ModCreativeTabs.tabOreBrokenNether);
+        }
+        else if (type.equals("Broken End Ore")) {
+            setCreativeTab(ModCreativeTabs.tabOreBrokenEnd);
+        }
+
+        // Grouped
         else if (type.equals("Gear")) {
             setCreativeTab(ModCreativeTabs.tabGear);
         }
         else if (type.equals("Plate")) {
             setCreativeTab(ModCreativeTabs.tabPlate);
-        }
-
-        else if (type.equals("Broken Ore")) {
-            setCreativeTab(ModCreativeTabs.tabBrokenOre);
-        }
-        else if (type.equals("Broken Nether Ore")) {
-            setCreativeTab(ModCreativeTabs.tabBrokenNetherOre);
-        }
-        else if (type.equals("Broken End Ore")) {
-            setCreativeTab(ModCreativeTabs.tabBrokenEndOre);
         }
 /*        else {
             setCreativeTab(ModCreativeTabs.tabOther);
@@ -64,22 +97,37 @@ public class ItemBase extends Item {
     @Override
     public String getItemStackDisplayName(ItemStack stack){
         String extra;
+        String name = base.substring(original.length());
+
+        if (base.contains("Refined")){
+            System.out.println("Base: " + base + " Original: " + original + " Type: " + type);
+            name = base.substring(5, 12) + " " + base.substring(12);
+        }
+
         if (type.contains("Broken")){
             extra = type.contains("Nether") ? "Nether " : type.contains("End") ? "End " : "";
-
-            return "Broken " + base.substring(original.length()) + " " + extra + "Ore";
+            return "Broken " + name + " " + extra + "Ore";
         }
         else if (type.contains("Tiny")) {
-            return "Tiny Pile of " + base.substring(original.length()) + " Dust";
+            return "Tiny Pile of " + name + " Dust";
         }
         else if (type.contains("Purified")) {
-            return "Purified Crushed " + base.substring(original.length()) + " Ore";
+            return "Purified Crushed " + name + " Ore";
         }
         else if (type.contains("Crushed")) {
-            return "Crushed " + base.substring(original.length()) + " Ore";
+            return "Crushed " + name + " Ore";
+        }
+        else if (type.contains("Casing")){
+            return name + " Item Casing";
+        }
+        else if (type.contains("Dense")){
+            return "Dense " + name + " Plate";
+        }
+        else if (type.contains("Smashed")){
+            return "Smashed " + name + " Ore";
         }
         else {
-            return base.substring(original.length()) + " " + type;
+            return name + " " + type;
         }
     }
 }

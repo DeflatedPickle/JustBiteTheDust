@@ -6,7 +6,7 @@ Another AOBD clone.
 2. Add a model file for the texture [here](https://github.com/DeflatedPickle/JustBiteTheDust/tree/master/src/main/resources/assets/justbitethedust/models/item).
 3. Add a `registerItem()` function for the item, for both ingot and gem [here](https://github.com/DeflatedPickle/JustBiteTheDust/blob/master/src/main/java/com/deflatedpickle/justbitethedust/init/ModItems.java).
 4. If the name of the item needs to be changed to be readable:
-    1. Add an `if` statement to the `registerItem()` function (see "Dust Tiny" example).
+    1. Add an `else if` statement to the `getItemStackDisplayName()` function [here](https://github.com/DeflatedPickle/JustBiteTheDust/blob/master/src/main/java/com/deflatedpickle/justbitethedust/items/ItemBase.java).
 5. Create a new tab for the item [here](https://github.com/DeflatedPickle/JustBiteTheDust/blob/master/src/main/java/com/deflatedpickle/justbitethedust/init/ModCreativeTabs.java).
 6. Add an `else if` statement for the item type [here](https://github.com/DeflatedPickle/JustBiteTheDust/blob/master/src/main/java/com/deflatedpickle/justbitethedust/items/ItemBase.java).
 7. Add the tab to [here](https://github.com/DeflatedPickle/JustBiteTheDust/blob/master/src/main/resources/assets/justbitethedust/lang/en_US.lang).

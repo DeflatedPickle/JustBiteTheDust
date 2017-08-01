@@ -4,22 +4,38 @@ import com.deflatedpickle.justbitethedust.JustBiteTheDust;
 import com.deflatedpickle.justbitethedust.tabs.TabBase;
 
 public class ModCreativeTabs {
+    // Vanilla
     public static TabBase tabNugget;
     public static TabBase tabDust;
     public static TabBase tabRod;
 
+    // IndustrialCraft
     public static TabBase tabDustTiny;
-    public static TabBase tabCrushedOre;
-    public static TabBase tabPurifiedOre;
+    public static TabBase tabOreCrushed;
+    public static TabBase tabOreCrushedPurified;
+    public static TabBase tabCasingItem;
+    public static TabBase tabDensePlate;
 
+    // Thermal Foundation
     public static TabBase tabCoin;
 
+    // Mekanism
+    public static TabBase tabDustDirty;
+    public static TabBase tabShard;
+    public static TabBase tabClump;
+    public static TabBase tabCrystal;
+
+    // Esteemed-Innovation
+    public static TabBase tabOreSmashed;
+
+    // ExNihilo
+    public static TabBase tabOreBroken;
+    public static TabBase tabOreBrokenNether;
+    public static TabBase tabOreBrokenEnd;
+
+    // Grouped
     public static TabBase tabGear;
     public static TabBase tabPlate;
-
-    public static TabBase tabBrokenOre;
-    public static TabBase tabBrokenNetherOre;
-    public static TabBase tabBrokenEndOre;
 
     // public static TabBase tabOther;
 
@@ -30,12 +46,31 @@ public class ModCreativeTabs {
 
         if (JustBiteTheDust.installed_industrialcraft) {
             tabDustTiny = new TabBase("dust_tiny");
-            tabCrushedOre = new TabBase("crushed_ore");
-            tabPurifiedOre = new TabBase("crushed_ore_purified");
+            tabOreCrushed = new TabBase("ore_crushed");
+            tabOreCrushedPurified = new TabBase("ore_crushed_purified");
+            tabCasingItem = new TabBase("casing_item");
+            tabDensePlate = new TabBase("plate_dense");
         }
 
         if (JustBiteTheDust.installed_industrialcraft) {
             tabCoin = new TabBase("coin");
+        }
+
+        if (JustBiteTheDust.installed_mekanism){
+            tabDustDirty = new TabBase("dust_dirty");
+            tabShard = new TabBase("shard");
+            tabClump = new TabBase("clump");
+            tabCrystal = new TabBase("crystal");
+        }
+
+        if (JustBiteTheDust.installed_esteemedinnovation){
+            tabOreSmashed = new TabBase("ore_smashed");
+        }
+
+        if (JustBiteTheDust.is_mod_exnihilo) {
+            tabOreBroken = new TabBase("ore_broken");
+            tabOreBrokenNether = new TabBase("ore_broken_nether");
+            tabOreBrokenEnd = new TabBase("ore_broken_end");
         }
 
         if (JustBiteTheDust.is_mod_gear)
@@ -43,12 +78,6 @@ public class ModCreativeTabs {
 
         if (JustBiteTheDust.is_mod_plate)
             tabPlate = new TabBase("plate");
-
-        if (JustBiteTheDust.is_mod_exnihilo) {
-            tabBrokenOre = new TabBase("broken_ore");
-            tabBrokenNetherOre = new TabBase("broken_nether_ore");
-            tabBrokenEndOre = new TabBase("broken_end_ore");
-        }
 
         // tabOther = new TabBase("other");
     }
