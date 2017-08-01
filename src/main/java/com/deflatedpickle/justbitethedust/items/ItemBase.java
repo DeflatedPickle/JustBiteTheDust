@@ -100,7 +100,6 @@ public class ItemBase extends Item {
         String name = base.substring(original.length());
 
         if (base.contains("Refined")){
-            System.out.println("Base: " + base + " Original: " + original + " Type: " + type);
             name = base.substring(5, 12) + " " + base.substring(12);
         }
 

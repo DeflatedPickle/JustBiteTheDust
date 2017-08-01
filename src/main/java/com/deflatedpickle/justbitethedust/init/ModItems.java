@@ -114,16 +114,22 @@ public class ModItems {
 
         String oredict = type.substring(0, 1).toLowerCase() + StringUtils.capitalize(type.replaceAll(" ", "")).substring(1) + base.substring(original.length()).replaceAll(" ", "");
 
+        // Crafting Recipes
         if (type.equals("Dust Tiny")){
             for (String ore : OreDictionary.getOreNames()) {
                 if (ore.contains("dust") && ore.contains(base.substring(4)) && !ore.contains("Tiny")) {
                     ModCrafting.add_recipe(item, ore, type);
                 }
             }
-        } else if (type.equals("Rod")){
-            OreDictionary.registerOre(oredict.replace("rod", "stick"), item);
-        } else
+        }
+        else {
             ModCrafting.add_recipe(item, base, type);
+        }
+
+        // Extra OreDictionary Names
+        if (type.equals("Rod")){
+            OreDictionary.registerOre(oredict.replace("rod", "stick"), item);
+        }
 
         if (type.toLowerCase().contains("crushed"))
             oredict = "c" + oredict.substring(4);

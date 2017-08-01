@@ -35,12 +35,13 @@ public class JustBiteTheDust {
     public static boolean installed_railcraft = Loader.isModLoaded("railcraft");
     public static boolean installed_mekanism = Loader.isModLoaded("mekanism");
     public static boolean installed_esteemedinnovation = Loader.isModLoaded("esteemedinnovation");
+    public static boolean installed_immersiveengineering = Loader.isModLoaded("immersiveengineering");
 
     private static boolean installed_exnihilo = Loader.isModLoaded("exnihilo");
     private static boolean installed_exnihiloadscensio = Loader.isModLoaded("exnihiloadscensio");
 
-    private static List<Boolean> mods_gear = Arrays.asList(installed_thermalfoundation, installed_buildcraft, installed_railcraft);
-    private static List<Boolean> mods_plate = Arrays.asList(installed_industrialcraft, installed_thermalfoundation);
+    private static List<Boolean> mods_gear = Arrays.asList(installed_thermalfoundation, installed_buildcraft, installed_railcraft, installed_immersiveengineering);
+    private static List<Boolean> mods_plate = Arrays.asList(installed_industrialcraft, installed_thermalfoundation, installed_immersiveengineering);
 
     private static List<Boolean> mods_exnihilo = Arrays.asList(installed_exnihilo, installed_exnihiloadscensio);
 

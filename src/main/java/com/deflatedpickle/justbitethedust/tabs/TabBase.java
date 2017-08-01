@@ -40,11 +40,14 @@ public class TabBase extends CreativeTabs {
                     if (item.getRegistryName().toString().split("justbitethedust")[1].contains(search_for)) {
                         if (search_for.equals("dust") && item.getRegistryName().toString().contains("tiny")) {
                             break;
-                        } else if (search_for.equals("ore_crushed") && item.getRegistryName().toString().contains("purified")){
+                        }
+                        else if (search_for.equals("ore_crushed") && item.getRegistryName().toString().contains("purified")){
                             break;
-                        } else if (search_for.equals("plate") && item.getRegistryName().toString().contains("dense")){
+                        }
+                        else if (search_for.equals("plate") && item.getRegistryName().toString().contains("dense")){
                             break;
-                        } else {
+                        }
+                        else {
                             list.add(item);
                         }
                     }
