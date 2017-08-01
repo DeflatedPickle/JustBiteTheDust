@@ -79,7 +79,7 @@ public class ModItems {
         }
     }
 
-    public static void registerItem(String base, String original, String type){
+    private static void registerItem(String base, String original, String type){
         ItemBase item = new ItemBase(base, original, type);
 
         GameRegistry.register(item);
