@@ -1,14 +1,24 @@
 // Tabs
+    // Vanilla
 itemGroup.tab_justbitethedust_nugget=JustBiteTheDust: Nuggets
 itemGroup.tab_justbitethedust_dust=JustBiteTheDust: Dusts
+itemGroup.tab_justbitethedust_rod=JustBiteTheDust: Rods
+
+    // Industrial Craft
 itemGroup.tab_justbitethedust_dust_tiny=JustBiteTheDust: Tiny Dusts
 itemGroup.tab_justbitethedust_crushed_ore=JustBiteTheDust: Crushed Ore
 itemGroup.tab_justbitethedust_crushed_ore_purified=JustBiteTheDust: Purified Ore
-itemGroup.tab_justbitethedust_gear=JustBiteTheDust: Gears
-itemGroup.tab_justbitethedust_plate=JustBiteTheDust: Plates
 
+    // Thermal Foundation
+itemGroup.tab_justbitethedust_coin=JustBiteTheDust: Coins
+
+    // ExNihilo
 itemGroup.tab_justbitethedust_broken_ore=JustBiteTheDust: Broken Ores
 itemGroup.tab_justbitethedust_broken_nether_ore=JustBiteTheDust: Broken Nether Ores
 itemGroup.tab_justbitethedust_broken_end_ore=JustBiteTheDust: Broken End Ores
+
+    // Grouped
+itemGroup.tab_justbitethedust_gear=JustBiteTheDust: Gears
+itemGroup.tab_justbitethedust_plate=JustBiteTheDust: Plates
 
 itemGroup.tab_justbitethedust_other=JustBiteTheDust: Other

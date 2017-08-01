@@ -25,6 +25,9 @@ public class ItemBase extends Item {
         else if (type.equals("Dust")) {
             setCreativeTab(ModCreativeTabs.tabDust);
         }
+        else if (type.equals("Rod")) {
+            setCreativeTab(ModCreativeTabs.tabRod);
+        }
         else if (type.equals("Dust Tiny")) {
             setCreativeTab(ModCreativeTabs.tabDustTiny);
         }
@@ -34,12 +37,16 @@ public class ItemBase extends Item {
         else if (type.equals("Crushed Ore Purified")) {
             setCreativeTab(ModCreativeTabs.tabPurifiedOre);
         }
+        else if (type.equals("Coin")) {
+            setCreativeTab(ModCreativeTabs.tabCoin);
+        }
         else if (type.equals("Gear")) {
             setCreativeTab(ModCreativeTabs.tabGear);
         }
         else if (type.equals("Plate")) {
             setCreativeTab(ModCreativeTabs.tabPlate);
         }
+
         else if (type.equals("Broken Ore")) {
             setCreativeTab(ModCreativeTabs.tabBrokenOre);
         }

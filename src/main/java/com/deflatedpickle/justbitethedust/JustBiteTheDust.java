@@ -30,9 +30,9 @@ public class JustBiteTheDust {
     public static final Logger logger = LogManager.getLogger(Reference.NAME);
 
     public static boolean installed_industrialcraft = Loader.isModLoaded("ic2");
-    private static boolean installed_thermalfoundation = Loader.isModLoaded("thermalfoundation");
-    private static boolean installed_buildcraft = Loader.isModLoaded("buildcraft");
-    private static boolean installed_railcraft = Loader.isModLoaded("railcraft");
+    public static boolean installed_thermalfoundation = Loader.isModLoaded("thermalfoundation");
+    public static boolean installed_buildcraft = Loader.isModLoaded("buildcraft");
+    public static boolean installed_railcraft = Loader.isModLoaded("railcraft");
 
     private static boolean installed_exnihilo = Loader.isModLoaded("exnihilo");
     private static boolean installed_exnihiloadscensio = Loader.isModLoaded("exnihiloadscensio");

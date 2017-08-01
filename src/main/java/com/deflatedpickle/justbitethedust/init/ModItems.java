@@ -20,10 +20,22 @@ public class ModItems {
                         if (OreDictionary.getOres("nugget" + ore).isEmpty()) {
                             registerItem(ore, "ingot", "Nugget");
                             registerItem(ore, "ingot", "Dust");
+                            registerItem(ore, "ingot", "Rod");
+
                             if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "ingot", "Dust Tiny");
                                 registerItem(ore, "ingot", "Crushed Ore");
                                 registerItem(ore, "ingot", "Crushed Ore Purified");
+                            }
+
+                            if (JustBiteTheDust.installed_thermalfoundation){
+                                registerItem(ore, "ingot", "Coin");
+                            }
+
+                            if (JustBiteTheDust.is_mod_exnihilo) {
+                                registerItem(ore, "ingot", "Broken Ore");
+                                registerItem(ore, "ingot", "Broken Nether Ore");
+                                registerItem(ore, "ingot", "Broken End Ore");
                             }
 
                             if (JustBiteTheDust.is_mod_gear)
@@ -31,22 +43,28 @@ public class ModItems {
 
                             if (JustBiteTheDust.is_mod_plate)
                                 registerItem(ore, "ingot", "Plate");
-
-                            if (JustBiteTheDust.is_mod_exnihilo) {
-                                registerItem(ore, "ingot", "Broken Ore");
-                                registerItem(ore, "ingot", "Broken Nether Ore");
-                                registerItem(ore, "ingot", "Broken End Ore");
-                            }
                         }
                     }
                     else if (ore.startsWith("gem")) {
                         if (OreDictionary.getOres("gem" + ore).isEmpty()) {
                             registerItem(ore, "gem", "Nugget");
                             registerItem(ore, "gem", "Dust");
+                            registerItem(ore, "gem", "Rod");
+
                             if (JustBiteTheDust.installed_industrialcraft) {
                                 registerItem(ore, "gem", "Dust Tiny");
                                 registerItem(ore, "gem", "Crushed Ore");
                                 registerItem(ore, "gem", "Crushed Ore Purified");
+                            }
+
+                            if (JustBiteTheDust.installed_thermalfoundation){
+                                registerItem(ore, "gem", "Coin");
+                            }
+
+                            if (JustBiteTheDust.is_mod_exnihilo) {
+                                registerItem(ore, "gem", "Broken Ore");
+                                registerItem(ore, "gem", "Broken Nether Ore");
+                                registerItem(ore, "gem", "Broken End Ore");
                             }
 
                             if (JustBiteTheDust.is_mod_gear)
@@ -54,12 +72,6 @@ public class ModItems {
 
                             if (JustBiteTheDust.is_mod_plate)
                                 registerItem(ore, "gem", "Plate");
-
-                            if (JustBiteTheDust.is_mod_exnihilo) {
-                                registerItem(ore, "gem", "Broken Ore");
-                                registerItem(ore, "gem", "Broken Nether Ore");
-                                registerItem(ore, "gem", "Broken End Ore");
-                            }
                         }
                     }
                 }
@@ -74,16 +86,18 @@ public class ModItems {
         JustBiteTheDust.proxy.registerItemModel(item, type);
         item_list.add(item);
 
-        if (type.equals("Dust Tiny"))
-            for (String ore : OreDictionary.getOreNames()){
-                if (ore.contains("dust") && ore.contains(base.substring(4)) && !ore.contains("Tiny")){
+        String oredict = type.substring(0, 1).toLowerCase() + StringUtils.capitalize(type.replaceAll(" ", "")).substring(1) + base.substring(original.length()).replaceAll(" ", "");
+
+        if (type.equals("Dust Tiny")){
+            for (String ore : OreDictionary.getOreNames()) {
+                if (ore.contains("dust") && ore.contains(base.substring(4)) && !ore.contains("Tiny")) {
                     ModCrafting.add_recipe(item, ore, type);
                 }
             }
-        else
+        } else if (type.equals("Rod")){
+            OreDictionary.registerOre(oredict.replace("rod", "stick"), item);
+        } else
             ModCrafting.add_recipe(item, base, type);
-
-        String oredict = type.substring(0, 1).toLowerCase() + StringUtils.capitalize(type.replaceAll(" ", "")).substring(1) + base.substring(original.length()).replaceAll(" ", "");
 
         if (type.contains("Crushed"))
             oredict = oredict.replace("Ore", "");
