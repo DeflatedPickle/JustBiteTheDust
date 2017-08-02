@@ -39,13 +39,13 @@ public class TabBase extends CreativeTabs {
                 if (!search_for.equals("other")){
                     if (item.getRegistryName().toString().split("justbitethedust")[1].contains(search_for)) {
                         if (search_for.equals("dust") && item.getRegistryName().toString().contains("tiny")) {
-                            break;
+                            continue;
                         }
                         else if (search_for.equals("ore_crushed") && item.getRegistryName().toString().contains("purified")){
-                            break;
+                            continue;
                         }
                         else if (search_for.equals("plate") && item.getRegistryName().toString().contains("dense")){
-                            break;
+                            continue;
                         }
                         else {
                             list.add(item);
@@ -59,7 +59,9 @@ public class TabBase extends CreativeTabs {
         }
 
         if (!list.isEmpty()) {
-            return new ItemStack(list.get(random.nextInt(list.size())));
+            ItemStack chosen_item = new ItemStack(list.get(random.nextInt(list.size())));
+            System.out.println(chosen_item);
+            return chosen_item;
         } else {
             return new ItemStack(Items.AIR);
         }
