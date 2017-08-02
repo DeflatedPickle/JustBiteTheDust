@@ -40,7 +40,7 @@ public class ModCrafting {
         }
 
         for (Pair<Item, String> pair : recipes_rod) {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pair.getLeft(), 4), "M", "M", "", 'M', pair.getRight()));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pair.getLeft(), 4), "M", "M", 'M', pair.getRight()));
         }
 
         if (JustBiteTheDust.installed_industrialcraft) {
