@@ -15,21 +15,23 @@ import java.util.*;
 
 public class ModCrafting {
     // Vanilla
-    private static Set<Pair<Item, String>> recipes_nugget = new HashSet();
-    private static Set<Pair<Item, String>> recipes_dust = new HashSet();
-    private static Set<Pair<Item, String>> recipes_rod = new HashSet();
+    private static Set<Pair<Item, String>> recipes_nugget = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_dust = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_rod = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_fuel_tiny = new HashSet<>();
 
     // IndustrialCraft
-    private static Set<Pair<Item, String>> recipes_dust_tiny = new HashSet();
-    private static Set<Pair<Item, String>> recipes_ore_crushed = new HashSet();
-    private static Set<Pair<Item, String>> recipes_ore_crushed_purified = new HashSet();
-    private static Set<Pair<Item, String>> recipes_casing_item = new HashSet();
+    private static Set<Pair<Item, String>> recipes_dust_tiny = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_ore_crushed = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_ore_crushed_purified = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_casing_item = new HashSet<>();
 
     // Grouped
-    private static Set<Pair<Item, String>> recipes_gear = new HashSet();
-    private static Set<Pair<Item, String>> recipes_plate = new HashSet();
+    private static Set<Pair<Item, String>> recipes_gear = new HashSet<>();
+    private static Set<Pair<Item, String>> recipes_plate = new HashSet<>();
 
     public static void register(){
+        JustBiteTheDust.logger.info("Started Generating Recipes.");
         for (Pair<Item, String> pair : recipes_nugget){
             GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(pair.getLeft(), 9), pair.getRight()));
             GameRegistry.addShapelessRecipe(OreDictionary.getOres(pair.getRight()).get(0).copy(), Collections.nCopies(9, pair.getLeft()).toArray());
@@ -43,9 +45,15 @@ public class ModCrafting {
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pair.getLeft(), 4), "M", "M", 'M', pair.getRight()));
         }
 
+        for (Pair<Item, String> pair : recipes_fuel_tiny) {
+            GameRegistry.addShapelessRecipe(OreDictionary.getOres(pair.getRight()).get(0).copy(), Collections.nCopies(8, pair.getLeft()).toArray());
+            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(pair.getLeft(), 8), pair.getRight()));
+        }
+
         if (JustBiteTheDust.installed_industrialcraft) {
             for (Pair<Item, String> pair : recipes_dust_tiny) {
                 GameRegistry.addShapelessRecipe(OreDictionary.getOres(pair.getRight()).get(0).copy(), Collections.nCopies(9, pair.getLeft()).toArray());
+                GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(pair.getLeft(), 8), pair.getRight()));
             }
 
             for (Pair<Item, String> pair : recipes_ore_crushed) {
@@ -72,6 +80,7 @@ public class ModCrafting {
                 GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(pair.getLeft()), pair.getRight(), "craftingToolForgeHammer"));
             }
         }
+        JustBiteTheDust.logger.info("Started Generating Recipes.");
     }
 
     public static void add_recipe(Item output, String input, String type){
@@ -84,6 +93,9 @@ public class ModCrafting {
         }
         else if (type.equals("Rod")){
             recipes_rod.add(Pair.of(output, input));
+        }
+        else if (type.equals("Fuel Tiny")){
+            recipes_fuel_tiny.add(Pair.of(output, input));
         }
 
         // IndustrialCraft

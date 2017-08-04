@@ -5,6 +5,8 @@ import com.deflatedpickle.justbitethedust.init.ModItems;
 import com.deflatedpickle.justbitethedust.init.ModCreativeTabs;
 import com.deflatedpickle.justbitethedust.proxy.CommonProxy;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -13,6 +15,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -54,6 +57,9 @@ public class JustBiteTheDust {
     public void preInit(FMLPreInitializationEvent event) {
         logger.info("Starting preInit.");
 
+        OreDictionary.registerOre("fuelCoal", Items.COAL);
+        OreDictionary.registerOre("fuelCharcoal", new ItemStack(Items.COAL, 1, 1));
+
         ModCreativeTabs.init();
         ModItems.init();
 
@@ -71,9 +77,9 @@ public class JustBiteTheDust {
     }
 
     @EventHandler
-    public void PostInit(FMLPostInitializationEvent event) {
-        logger.info("Starting preInit.");
+    public void postInit(FMLPostInitializationEvent event) {
+        logger.info("Starting postInit.");
 
-        logger.info("Finished Init.");
+        logger.info("Finished postInit.");
     }
 }

@@ -1,5 +1,6 @@
 package com.deflatedpickle.justbitethedust.proxy;
 
+import com.deflatedpickle.justbitethedust.handlers.FuelHandler;
 import com.deflatedpickle.justbitethedust.init.ModItems;
 import com.deflatedpickle.justbitethedust.items.ItemBase;
 import net.minecraft.client.Minecraft;
@@ -14,6 +15,7 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.awt.*;
@@ -35,10 +37,15 @@ public class ClientProxy implements CommonProxy{
                     for (ItemStack gem : OreDictionary.getOres(String.format("gem%s", nug.base.substring(3)))) {
                         generateColour(gem, nug);
                     }
+                    for (ItemStack gem : OreDictionary.getOres(String.format("fuel%s", nug.base.substring(4)))) {
+                        generateColour(gem, nug);
+                    }
                     registerItemColour(nug);
                 }
             }
         });
+
+        GameRegistry.registerFuelHandler(new FuelHandler());
     }
 
     @Override
@@ -52,7 +59,7 @@ public class ClientProxy implements CommonProxy{
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation("justbitethedust:" + type.toLowerCase().replaceAll(" ", "_") + model, "inventory"));
     }
 
-    public static void registerItemColour(ItemBase item){
+    private static void registerItemColour(ItemBase item){
         final int colour = item.colour;
         ItemColors itemColors = Minecraft.getMinecraft().getItemColors();
         itemColors.registerItemColorHandler(new IItemColor() {
@@ -67,7 +74,7 @@ public class ClientProxy implements CommonProxy{
         }, item);
     }
 
-    public void generateColour(ItemStack base, ItemBase item){
+    private void generateColour(ItemStack base, ItemBase item){
         IBakedModel model = Minecraft.getMinecraft().getRenderItem().getItemModelWithOverrides(base, null, null);
         List<BakedQuad> quads = model.getQuads(null, null, 0);
 

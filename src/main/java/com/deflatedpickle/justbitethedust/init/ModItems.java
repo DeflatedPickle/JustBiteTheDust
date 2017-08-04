@@ -1,22 +1,34 @@
 package com.deflatedpickle.justbitethedust.init;
 
 import com.deflatedpickle.justbitethedust.JustBiteTheDust;
+import com.deflatedpickle.justbitethedust.handlers.FuelHandler;
 import com.deflatedpickle.justbitethedust.items.ItemBase;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class ModItems {
-    public static List<ItemBase> item_list = new ArrayList();
+    public static List<ItemBase> item_list = new ArrayList<>();
+    private static Integer ingots = 0;
+    private static Integer gems = 0;
+    private static Integer fuels = 0;
+
+    private static Map<String, Integer> registeredItems = new HashMap<>();
 
     public static void init(){
+        JustBiteTheDust.logger.info("Started Searching Items.");
         for (String ore : OreDictionary.getOreNames()) {
             if (!OreDictionary.getOres(ore).isEmpty()) {
                 if (!ore.contains("Brick") && !ore.contains("Base")) {
                     if (ore.startsWith("ingot")) {
+                        ingots ++;
                         if (OreDictionary.getOres("nugget" + ore).isEmpty()) {
                             registerItem(ore, "ingot", "Nugget");
                             registerItem(ore, "ingot", "Dust");
@@ -59,6 +71,7 @@ public class ModItems {
                         }
                     }
                     else if (ore.startsWith("gem")) {
+                        gems ++;
                         if (OreDictionary.getOres("gem" + ore).isEmpty()) {
                             registerItem(ore, "gem", "Nugget");
                             registerItem(ore, "gem", "Dust");
@@ -100,13 +113,23 @@ public class ModItems {
                                 registerItem(ore, "gem", "Plate");
                         }
                     }
+                    if (ore.startsWith("fuel")){
+                        fuels ++;
+                        if (OreDictionary.getOres("fuel" + ore).isEmpty()){
+                            registerItem(ore, "fuel", "Fuel Tiny");
+                        }
+                    }
                 }
             }
         }
+        JustBiteTheDust.logger.info("Finished Searching Items.");
+        JustBiteTheDust.logger.info(String.format("Searched; %d Ingots, %d Gems and %d Fuels | %d in total.", ingots, gems, fuels, ingots + gems + fuels));
+        JustBiteTheDust.logger.info(String.format("Generated; %s | %d in total.", registeredItems.toString(), item_list.size()));
     }
 
     private static void registerItem(String base, String original, String type){
         ItemBase item = new ItemBase(base, original, type);
+        // System.out.println(base + " | " + original + " | " + type);
 
         GameRegistry.register(item);
         JustBiteTheDust.proxy.registerItemModel(item, type);
@@ -131,9 +154,29 @@ public class ModItems {
             OreDictionary.registerOre(oredict.replace("rod", "stick"), item);
         }
 
-        if (type.toLowerCase().contains("crushed"))
+        // Different OreDictionary Names
+        if (type.toLowerCase().contains("crushed")) {
             oredict = "c" + oredict.substring(4);
+        }
+
+        // Register Fuel
+        if (type.contains("Fuel")){
+            Integer burn_time = TileEntityFurnace.getItemBurnTime(OreDictionary.getOres(base).get(0)) / 8;
+            // burn_time = TileEntityFurnace.getItemBurnTime(new ItemStack(Items.COAL));
+            // System.out.println("Adding Fuel: " + "Tiny " + base + " | With Burn Time: " + burn_time / 8);
+            if (base.contains("Coke")){
+                burn_time = TileEntityFurnace.getItemBurnTime(new ItemStack(Items.COAL)) * 2 / 8;
+            }
+            FuelHandler.fuelList.add(Pair.of(item, burn_time));
+        }
 
         OreDictionary.registerOre(oredict, item);
+
+        if (!registeredItems.containsKey(type)){
+            registeredItems.put(type, 1);
+        }
+        else {
+            registeredItems.put(type, registeredItems.get(type) + 1);
+        }
     }
 }

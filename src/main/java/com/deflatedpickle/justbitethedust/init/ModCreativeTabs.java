@@ -8,6 +8,7 @@ public class ModCreativeTabs {
     public static TabBase tabNugget;
     public static TabBase tabDust;
     public static TabBase tabRod;
+    public static TabBase tabFuelTiny;
 
     // IndustrialCraft
     public static TabBase tabDustTiny;
@@ -40,9 +41,11 @@ public class ModCreativeTabs {
     // public static TabBase tabOther;
 
     public static void init(){
+        JustBiteTheDust.logger.info("Started Generating Creative Tabs.");
         tabNugget = new TabBase("nugget");
         tabDust = new TabBase("dust");
         tabRod = new TabBase("rod");
+        tabFuelTiny = new TabBase("fuel_tiny");
 
         if (JustBiteTheDust.installed_industrialcraft) {
             tabDustTiny = new TabBase("dust_tiny");
@@ -80,5 +83,7 @@ public class ModCreativeTabs {
             tabPlate = new TabBase("plate");
 
         // tabOther = new TabBase("other");
+
+        JustBiteTheDust.logger.info("Started Generating Creative Tabs.");
     }
 }

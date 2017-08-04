@@ -60,7 +60,7 @@ public class TabBase extends CreativeTabs {
 
         if (!list.isEmpty()) {
             ItemStack chosen_item = new ItemStack(list.get(random.nextInt(list.size())));
-            System.out.println(chosen_item);
+            // System.out.println(chosen_item);
             return chosen_item;
         } else {
             return new ItemStack(Items.AIR);

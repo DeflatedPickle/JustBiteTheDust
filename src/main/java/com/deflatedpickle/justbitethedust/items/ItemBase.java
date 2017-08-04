@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBase extends Item {
     public String base;
-    public String original;
+    private String original;
     public String type;
     public int colour;
 
@@ -28,6 +28,9 @@ public class ItemBase extends Item {
         }
         else if (type.equals("Rod")) {
             setCreativeTab(ModCreativeTabs.tabRod);
+        }
+        else if (type.equals("Fuel Tiny")) {
+            setCreativeTab(ModCreativeTabs.tabFuelTiny);
         }
 
         // Industrial Craft
@@ -107,7 +110,7 @@ public class ItemBase extends Item {
             extra = type.contains("Nether") ? "Nether " : type.contains("End") ? "End " : "";
             return "Broken " + name + " " + extra + "Ore";
         }
-        else if (type.contains("Tiny")) {
+        else if (type.contains("Tiny") && type.contains("Dust")) {
             return "Tiny Pile of " + name + " Dust";
         }
         else if (type.contains("Purified")) {
@@ -124,6 +127,10 @@ public class ItemBase extends Item {
         }
         else if (type.contains("Smashed")){
             return "Smashed " + name + " Ore";
+        }
+        else if (type.contains("Tiny") && type.contains("Fuel")){
+            extra = base.contains("Coke") ? "Coal " : "";
+            return "Tiny " + extra + name;
         }
         else {
             return name + " " + type;
