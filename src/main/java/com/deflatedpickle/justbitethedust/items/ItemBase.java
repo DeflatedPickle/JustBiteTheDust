@@ -102,6 +102,7 @@ public class ItemBase extends Item {
         String extra;
         String name = base.substring(original.length());
 
+        // Note: Might be better to add a space after each capital letter rather than this specific case.
         if (base.contains("Refined")){
             name = base.substring(5, 12) + " " + base.substring(12);
         }

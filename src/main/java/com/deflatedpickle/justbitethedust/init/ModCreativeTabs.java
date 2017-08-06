@@ -55,7 +55,7 @@ public class ModCreativeTabs {
             tabDensePlate = new TabBase("plate_dense");
         }
 
-        if (JustBiteTheDust.installed_industrialcraft) {
+        if (JustBiteTheDust.installed_thermalfoundation) {
             tabCoin = new TabBase("coin");
         }
 
